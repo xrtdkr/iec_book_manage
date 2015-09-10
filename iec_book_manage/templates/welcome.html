@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
+    <title>IEC Book</title>
+</head>
+<body>
+    <h1 >Welcome to IEC book manage platform  ^~^~</h1>
+    <h2>This is a inner platform that for managing books</h2>
+    <p>
+        <a href="/borrow/">click here to borrow some book</a>
+    </p>
+    <br>
+    <p>
+        <a href="/return/">click here to return a book</a>
+    </p>
+    <hr>
+    <h4>
+        Here are books that we have
+    </h4>
+    <p>
+        {% if book_set %}
+            {% for book in book_set %} <!--这里的book_set是数据库里面Books对象的QuerySet-->
+                <ul>{{ book.bookNum }}:::{{ book.bookName }}</ul>
+            {% endfor %}
+        {% else %}
+            <p>Sorry,There is no booooook</p>
+        {% endif %}
+    </p>
+    <p>Thanks all ^~^</p>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html>
+<head>
+    <title>secret</title>
+</head>
+<body>
+<h1>恭喜你发现了镇站之宝</h1>
+<h2>This is admin for bookManage</h2>
+<h5>Attention! U mustn't play with this system</h5>
+<br/>
+<br/>
+<form name="input" action="/" method="post">
+    {% csrf_token %}
+    <p>now you can store the book in </p>
+    <br/>
+    Please input the number of book
+    <input type="text" name="book_num">
+    <br>
+    Please input the name of book
+    <input type="text" name="book_name">
+    <br>
+    <input type="submit" value="Submit">
+</form>
+
+<p>We have book now:
+{% if book_set %}
+    {% for book in book_set %}
+        <ul>{{ book.bookNum }}:{{ book.bookName }}</ul>
+    {% endfor %}
+{% else %}
+<p>No book in IEC</p>
+{% endif %}
+</p>
+
+
+
+</body>
+</html>
