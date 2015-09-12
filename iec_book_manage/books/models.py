@@ -14,8 +14,7 @@ class Book(models.Model):
     bookName = models.CharField(max_length=20)
     bookNum = models.CharField(max_length=20)
     bookTime = models.DateTimeField(default=None)
-    bookFlag = models.BooleanField(default=True)    #布尔值True表示可借,布尔值为False不可借python mana
-    person = models.ForeignKey(Person, blank=True, default=False)
+    bookFlag = models.BooleanField(default=True)    #布尔值True表示可借,布尔值为False不可借python
 
     def __unicode__(self):
         return self.bookName
