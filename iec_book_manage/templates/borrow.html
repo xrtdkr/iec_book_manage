@@ -10,11 +10,13 @@
 <p align="right">here is iec inner borrow page</p>
 <p style="color: cornflowerblue;">here is book that have been borrowed</p>
 {% if book_set %}
-    {% for book in borrow_book_set %}
+    {% for book in book_set %}
         {% if not bookFlag %}
         <ul style="color: crimson">
-        series{{ book.bookNum }} :{{ book.bookName }}has been borrowed by (本括号内空格正在施工) at{{ book.bookTime }}
+        series{{ book.bookNum }} :{{ book.bookName }}has been borrowed by {{ book.bookPerson }} at{{ book.bookTime }}
         </ul>
+        {% else %}
+        <p>No book has been borrowed</p>
         {% endif %}
     {% endfor %}
 {% else %}
@@ -26,14 +28,22 @@
 <h3 style="color: darkcyan">here to submit your request</h3>
 <form name="borrow_form" action="/secceed/" method="post">
     {% csrf_token %}
-    <input type="text" name="bookNum">
+    Your book series number:<input type="text" name="bookNum">
     <br>
-    <input type="text" name="bookName">
+    Your name:<input type="text" name="Name">
     <br>
     <input type="submit" value="submit">
 </form>
-
-
+<p style="color: beige">Here is the book that you can borrow</p><!--在HTML里面,book_set代表了书籍的列表,对应views里面的book_list-->
+{%if book_set %}
+    {% for book in book_set %}
+        {% if bookFlag %}
+            <ul style="color: cadetblue">{{ book.bookNum }} :{{ book.bookName }}can be borrowed</ul>
+        {% endif %}
+    {% endfor %}
+{% else %}
+    <p>No book in IEC can be borrowed</p>
+{% endif %}
 
 
 

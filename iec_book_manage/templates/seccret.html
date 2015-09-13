@@ -10,18 +10,17 @@
 <h2>This is admin for bookManage</h2>
 <h5>Attention! U mustn't play with this system</h5>
 <br/>
-<br/>
+<h3 style="color: red">now you can store the book in </h3>
 <form name="input" action="/secret/" method="post">
     {% csrf_token %}
-    <p>now you can store the book in </p>
     <br/>
-    Please input the number of book
+    <p>Please input the number of book</p>
     <input type="text" name="book_num">
     <br>
-    Please input the name of book
+    <p>Please input the name of book</p>
     <input type="text" name="book_name">
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Save ^~^">
 </form>
 
 <p>We have book now:
@@ -33,6 +32,13 @@
 <p>No book in IEC</p>
 {% endif %}
 </p>
+<h3 style="color: red">Here you can delete the book in the book_db</h3>
+<form name="delete" action="/secret/" method="post">
+    {% csrf_token %}
+    <p>the series number of book</p>
+    <input type="text" name="book_delete">
+    <input type="submit" value="delete ^~^">
+</form>
 
 
 

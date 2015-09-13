@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from books.views import welcome,secret
+from books.views import welcome, secret, borrow
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^welcome/$', welcome),
     url(r'^secret/$', secret),
+    url(r'^borrow/$', borrow),
 ]
