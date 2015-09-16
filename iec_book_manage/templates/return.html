@@ -1,10 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <html>
 <head>
-    <title></title>
+    <title>Return</title>
 </head>
 <body>
+<h1>这是IEC还书的页面</h1>
 
+<p style="color: blueviolet">now input your name to check the book</p>
+<form name="name_author_form" action="/return_authed/" method="post">
+    {% csrf_token %}
+
+</form>
 </body>
 </html>

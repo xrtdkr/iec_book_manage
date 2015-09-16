@@ -35,7 +35,7 @@ def secret(request):
                 book.bookTime = now
                 book.save()
             else:
-                return HttpResponse('You commit a copy ^~^')  # 不可以简单粗暴地直接返回http——response改进:1变成重新渲染模板一下的网页提示2使用ajax进行交互
+                return HttpResponse('You commit a copy ^~^')  # 不可以简单粗暴地直接返回httpresponse改进:1变成重新渲染模板一下的网页提示2使用ajax进行交互
             book_list = Book.objects.all()
             return render_to_response('seccret.html', {'book_set': book_list}, context_instance=RequestContext(request))
         else:

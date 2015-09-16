@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+<head>
+    <title>authed</title>
+    <style type="text/css">
+<!--
+a {text-transform:none;text-decoration:none;}
+a:hover {text-decoration:underline}
+-->
+</style>
+</head>
+<body>
+<h1 style="color: red">Authed Succeed!  ^~^</h1>
+<h2>The book below have been borrowed </h2>
+<p>勾选你要换的</p>
+<div>
+    <form name="return" action="/return_authed/" method="post">
+    {% csrf_token %}
+    {% if authed_book_list %}
+        {% for book in authed_book_list %}
+            <ul><input name="{{ book.bookName }}" type="checkbox" value=""> {{ book.bookName }}</ul>
+        {% endfor %}
+        <input type="submit" value="return">
+    {% else %}
+        <p>you borrow no book,go and borrow <a href="/borrow/" style="text-emphasis: triangle">one</a>? </p>
+    {% endif %}
+    </form>
+</div>
+<br/>
+<br/>
+<a href="/welcome/" >click to return welcome page</a>
+<br/>
+</body>
+</html>
