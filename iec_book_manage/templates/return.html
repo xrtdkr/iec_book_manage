@@ -12,7 +12,8 @@
 <p style="color: blueviolet">now input your name to check the book</p>
 <form name="name_author_form" action="/return_authed/" method="post">
     {% csrf_token %}
-
+    <input type="text" name="person">
+    <input type="submit" value="search">
 </form>
 </body>
 </html>
