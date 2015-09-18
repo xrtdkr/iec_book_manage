@@ -82,9 +82,28 @@ def borrow(request):
         return render_to_response('borrow.html', {'book_set': book_list}, context_instance=RequestContext(request))
     else:
         return HttpResponse('sorry,the Ajax or remind is on building^~^,please been keeping curios')
+# borrow已经初步构建完成啦啦啦啦啦了
 
 
 def returning(request):
+    if 'person' in request.POST:
+        if request.POST['person']:
+            person_auth = request.POST['person']
+            try:
+                Person.objects.get(personName=person_auth)  # 这个只起到一个错误判断的作用,若执行通过则表示查有此人
+                html = render_to_response('return_auth.html', context_instance=RequestContext(request))
+                html.set_cookie('person_auth', person_auth)
+                return html
+            except:
+                return HttpResponse('sorry!!! your name does not match')
+        else:
+            return HttpResponse('you submit an empty form')
+    else:
+        return render_to_response('return.html', context_instance=RequestContext(request))
+
+
+def return_auth(request):
+    if ''
 
 
 
@@ -95,10 +114,4 @@ def returning(request):
 
 
 
-
-
-
-
-
-
-# Create your views here.
+# Create your views here.'''

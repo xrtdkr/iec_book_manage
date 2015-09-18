@@ -4,7 +4,7 @@
 
 <html>
 <head>
-    <title>authed</title>
+    <title>authed!</title>
     <style type="text/css">
 <!--
 a {text-transform:none;text-decoration:none;}
@@ -13,7 +13,7 @@ a:hover {text-decoration:underline}
 </style>
 </head>
 <body>
-<h1 style="color: red">Authed Succeed!  ^~^</h1>
+<h1 style="color: red">Authed Succeed!  ^~^ 蛤蛤</h1>
 <h2>The book below have been borrowed </h2>
 <p>勾选你要换的</p>
 <div>
@@ -21,7 +21,7 @@ a:hover {text-decoration:underline}
     {% csrf_token %}
     {% if authed_book_list %}
         {% for book in authed_book_list %}
-            <ul><input name="{{ book.bookName }}" type="checkbox" value=""> {{ book.bookName }}</ul>
+            <ul><input name="{{ book.bookName }}" type="checkbox" checked="true"> {{ book.bookName }}</ul>
         {% endfor %}
         <input type="submit" value="return">
     {% else %}
