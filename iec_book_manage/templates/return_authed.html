@@ -18,10 +18,10 @@ a:hover {text-decoration:underline}
 <p>勾选你要换的</p>
 <div>
     <form name="return" action="/return_authed/" method="post">
-    {% csrf_token %}
+    {% csrf_token d%}
     {% if authed_book_list %}
         {% for book in authed_book_list %}
-            <ul><input name="{{ book.bookName }}" type="checkbox" checked="true"> {{ book.bookName }}</ul>
+            <ul><input name="{{ book.bookName }}" type="checkbox" checked="false"> {{ book.bookName }}</ul>
         {% endfor %}
         <input type="submit" value="return">
     {% else %}

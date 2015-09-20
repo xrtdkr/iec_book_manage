@@ -102,8 +102,27 @@ def returning(request):
         return render_to_response('return.html', context_instance=RequestContext(request))
 
 
+'''checkbox的表单,和那个正常的表单是一样的,都是一个key对应一个value,然后name是名字,对应的name的键值,如果选中了的话,为"on",
+没有选中的话则没有key键,而不是key值为空,'''
+
+
 def return_auth(request):
-    if ''
+    person_auth = request.COOKIES['person_auth']
+    book_auth_set = Book.objects.filter(bookPerson=person_auth)
+    flag = 0
+    for book_auth in book_auth_set:
+        if request.POST[book_auth]:
+            flag = 1
+            Book.objects.get(bookName=book_auth).delete()
+    if not flag:
+        
+
+
+
+
+
+
+
 
 
 
