@@ -35,9 +35,9 @@
 </form>
 <p style="color: beige">Here is the book that you can borrow</p><!--在HTML里面,book_set代表了书籍的列表,对应views里面的book_list-->
 {%if book_list %}
-    {% for book in book_set %}
-        {% if bookFlag %}
-            <ul style="color: cadetblue">{{ book.bookNum }} :{{ book.bookName }}can be borrowed</ul>
+    {% for book in book_list %}
+        {% if book.bookFlag %}
+            <ul style="color: cadetblue">{{ book.bookNum }} : {{ book.bookName }}  can be borrowed</ul>
         {% endif %}
     {% endfor %}
 {% else %}
